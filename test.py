@@ -20,8 +20,20 @@ class CreatePass:
         return input('Введите секретную фразу: ')
 
     @staticmethod
-    def save_password():
-        pass
+    def get_password(password):
+        for keys, values in password:
+            if password == keys:
+                print(values)
+            else:
+                print('Неверная секретная фраза, попробуйте ещё раз!')
+                continue
+
+    @staticmethod
+    def save_password(secret, password):
+        passwords = {secret: password}
+        return passwords
+
+
 
 
 print("Saneks's pass gen - приложжение для генерации сложных паролей")
@@ -36,13 +48,17 @@ while 1:
             return choice
 
     if menu() == 1:
-        pass
+        get = CreatePass.get_password(password=CreatePass.save_password())
     elif menu() == 2:
-        pass_len = int(input('Введите длину пароля: '))
-        create = CreatePass(password_len=pass_len)
-        secret_word = CreatePass.create_secret_word()
-        print(f'Ваш пароль: {create.create_password()}')
-        break
+        choice1 = int(input('Выберете что вы хотите сделать: \b 1 - Получить пароль 2 - Создать пароль: \b'))
+        if choice1 == 1:
+            pass
+        elif choice1 == 2:
+            pass_len = int(input('Введите длину пароля: '))
+            create = CreatePass(password_len=pass_len)
+            secret_word = CreatePass.create_secret_word()
+            print(f'Ваш пароль: {create.create_password()}')
+            break
     else:
         break
 

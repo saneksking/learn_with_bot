@@ -1,4 +1,4 @@
-import random
+'''import random
 import string
 
 x = ''.join(random.choice('\n!@#$%^&*()_+{}:"><,.;=-"№;:?') for _ in range(1, 10))
@@ -16,3 +16,11 @@ class RandomStringMaster:
 
 x = RandomStringMaster.get()
 print(x)
+
+'''
+passwords = {}
+secret = input(':')
+password = input(':')
+passwords[secret] = password
+print(passwords)
+
