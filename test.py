@@ -20,47 +20,34 @@ class CreatePass:
         return input('Введите секретную фразу: ')
 
     @staticmethod
-    def get_password(password):
-        for keys, values in password:
-            if password == keys:
-                print(values)
-            else:
-                print('Неверная секретная фраза, попробуйте ещё раз!')
-                continue
-
-    @staticmethod
     def save_password(secret, password):
-        passwords = {secret: password}
+        passwords = {}
+        passwords[secret] = password
         return passwords
 
 
+class GetPassword(CreatePass):
+    @staticmethod
+    def get_pass(secret):
+        secret_words = input('Введите секретную фразу: ')
+        # for key in :
 
 
-print("Saneks's pass gen - приложжение для генерации сложных паролей")
+print("Saneks's pass gen - приложение для генерации сложных паролей")
 print('*' * 80)
-print('1 - Получить пароль; 2 - Сгенерировать пароль; 3 - Выйти')
-choice = int(input('Выберете то, что вы хотите сделать: '))
 while 1:
-    def menu():
-        if choice == 1:
-            pass
-        elif choice == 2:
-            return choice
+    menu = int(input('Что вы собираетесь сделать: \b 1 - Создать пароль, 2 - Получить пароль: '))
+    if menu == 1:
+        pass_len = int(input('Введите длину пароля: '))
+        create = CreatePass(password_len=pass_len)
+        secret_word = CreatePass.create_secret_word()
+        save = CreatePass.save_password(secret=secret_word, password=create.create_password())
+    elif menu == 2:
+        pass
+    break
 
-    if menu() == 1:
-        get = CreatePass.get_password(password=CreatePass.save_password())
-    elif menu() == 2:
-        choice1 = int(input('Выберете что вы хотите сделать: \b 1 - Получить пароль 2 - Создать пароль: \b'))
-        if choice1 == 1:
-            pass
-        elif choice1 == 2:
-            pass_len = int(input('Введите длину пароля: '))
-            create = CreatePass(password_len=pass_len)
-            secret_word = CreatePass.create_secret_word()
-            print(f'Ваш пароль: {create.create_password()}')
-            break
-    else:
-        break
+
+
 
 
 
