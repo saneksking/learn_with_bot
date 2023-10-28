@@ -31,3 +31,38 @@ if x == 15:
         print('x равно 20')
 else:
     print('x не равно 15')
+"""Циклы"""
+count = 0
+while count < 6:
+    count += 1
+    print(count)
+
+print('-' * 80)
+names = ['Steve', 'Alex', 'Alexander']
+for name in names:
+    print(name)
+
+print('-' * 80)
+for num in range(1, 11):
+    print(num)
+"""Функции"""
+print('-' * 80)
+
+
+def func():
+    number = 15
+    return number
+
+
+print(func())
+print('-' * 80)
+
+
+def addition(num_one, num_two):
+    equals = num_one + num_two
+    return equals
+
+
+print(addition(num_two=1, num_one=10))
+"""Классы"""
+
